@@ -19,7 +19,7 @@ export default function Home() {
   }
 
   const deleteItemFunc = (id) => {
-
+    setTodolist(todolist.filter(listitem => listitem.id !== id));
   }
 
   console.log("todolist", todolist)
@@ -48,8 +48,8 @@ export default function Home() {
                 return (
                   <div key={index}>
                     <div style={{ display: "flex", justifyContent: "space-between", gap: "20px" }}>
-                      <p style={{ textAlign: "center" }}>{item.name}</p>
-                      <IoMdCloseCircleOutline onClick={() => deleteItemFunc(item.id)} />
+                      <p style={{ textAlign: "center", fontSize: "20px" }}>{item.name}</p>
+                      <IoMdCloseCircleOutline size={20} onClick={() => deleteItemFunc(item.id)} />
                     </div>
                   </div>
                 )
