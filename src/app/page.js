@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div className={style.container}>
       <div className={style.todoCard}>
-        <h1>TODO LIST</h1>
+        <h1 style={{ color: "white" }}>TODO LIST</h1>
 
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "15px", width: "100%", marginTop: "20px", marginBottom: "20px" }}>
           <input value={input.name} type="text" placeholder="Yapılacak bir şey yazınız..." style={{ outline: "none", paddingLeft: "15px", border: "none", borderRadius: "3px", height: "30px", flex: "2", }}
@@ -37,30 +37,28 @@ export default function Home() {
 
 
 
-        <div style={{ color: "white" }}>
+        <div style={{ width: "100%", textAlign: "center" }}>
 
           {
             todolist.length == 0 ?
-              <p>Henüz listeniz boş</p>
+              <p style={{ color: "white" }}>Henüz listeniz boş</p>
 
               :
               todolist.map((item, index) => {
                 return (
-                  <div key={index}>
-                    <div style={{ display: "flex", justifyContent: "space-between", gap: "20px" }}>
+                  <div key={index} style={{ marginBottom: "20px" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", backgroundColor: "white", padding: "10px 20px", width: "100%" }}>
                       <p style={{ textAlign: "center", fontSize: "20px" }}>{item.name}</p>
                       <IoMdCloseCircleOutline size={20} onClick={() => deleteItemFunc(item.id)} />
                     </div>
                   </div>
                 )
               })
-
-
           }
 
 
         </div>
       </div>
-    </div>
+    </div >
   )
 }
